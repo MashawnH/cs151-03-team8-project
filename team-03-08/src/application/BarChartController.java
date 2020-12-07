@@ -5,24 +5,17 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ResourceBundle;
-import java.util.Comparator;
-import java.util.List;
+
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -47,10 +40,7 @@ public class BarChartController implements Initializable{
     
     @FXML
     private Label monthLabel;
-    
-    @FXML
-    private Label monthNA;
-    
+        
     @FXML Button updateChart;
     
     @FXML
@@ -439,55 +429,6 @@ public class BarChartController implements Initializable{
 		}
 	}
 	
-	private void updateChart() {
-		barChartData = new XYChart.Series<>();
-		String type = typeSelection.getValue();
-		
-		if(type.equals("Expense")) {
-			if(periodSelection.getValue().equals("Daily")) {
-				getDaily(type);
-			}
-			
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Weekly")) {
-				getWeekly(type);
-			}
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Monthly")) {
-				getMonthly(type);
-			}
-		}
-		
-		else if(type.equals("Income")) {
-			if(periodSelection.getValue().equals("Daily")) {
-				getDaily(type);
-			}
-			
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Weekly")) {
-				getWeekly(type);
-			}
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Monthly")) {
-				getMonthly(type);
-			}
-		}
-		
-		else if(type.equals("Net Income")) {
-			if(periodSelection.getValue().equals("Daily")) {
-				getDaily(type);
-			}
-			
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Weekly")) {
-				getWeekly(type);
-			}
-			//TODO Fix initial call 
-			else if(periodSelection.getValue().equals("Monthly")) {
-				getMonthly(type);
-			}
-		}
-	}
 	
 	public void goBack(ActionEvent event) {
         try {
